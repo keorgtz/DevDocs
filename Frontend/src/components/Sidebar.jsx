@@ -5,7 +5,7 @@ export function Sidebar({ sidebarOpen, setSidebarOpen }){
     return(
         <Container>
             <div className="LogoContent">
-
+            
             </div>
         </Container>
     );

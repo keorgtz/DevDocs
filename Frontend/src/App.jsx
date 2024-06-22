@@ -46,7 +46,7 @@ function App() {
 
 //Estilos del contenerdor para el sidebar
 const Container = styled.div`
-    dispklay: grid;
+    display: grid;
     grid-template-columns: 90px auto;
     background: ${({ theme }) => theme.bgtotal};
     &.active {
