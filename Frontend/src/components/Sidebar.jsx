@@ -26,7 +26,7 @@ export function Sidebar({ sidebarOpen, setSidebarOpen }) {
         <div className="imgcontent">
           <img src={logo} />
         </div>
-        <h2> DevDocs </h2>
+        <h2> Aetherium </h2>
       </div>
 
       {linksArrays.map(({icon, label, to}) => (
@@ -111,7 +111,7 @@ const Container = styled.div`
 
   background: ${(props) => props.theme.bg};
   position: sticky;
-  padding-top: 20px;
+  padding-top: 25px;
   transition: all 0.5s;
   .sidebarButton {
     position: absolute;
@@ -142,7 +142,7 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: ${v.lgSpacing};
+    padding-bottom: ${v.xlSpacing};
     .imgcontent {
       display: flex;
       img {
@@ -163,21 +163,22 @@ const Container = styled.div`
     padding: 0 15%;
     :hover{
       background: ${(props) => props.theme.bg3};
-
     }
     .Links{
       display: flex;
       align-items: center;
       text-decoration: none;
-      padding: calc(${v.smSpacing}-2px) 0;
+      padding: calc(${v.mdSpacing}-2px) 0;
       color: ${(props) => props.theme.text};
       .linkIcon{
-        padding: ${v.smSpacing} ${v.mdSpacing};
+        padding: ${v.mdSpacing} ${v.mdSpacing};
         display: flex;
         svg{
           font-size: 1.6rem;
-
+          transform: ${({ isOpen }) => (isOpen ? `` : `scale(1.3)`)};
+          transition: all 0.4s;
         }
+        
       }
       &.active{
         .linkIcon{

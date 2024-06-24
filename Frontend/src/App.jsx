@@ -52,7 +52,6 @@ const Container = styled.div`
     transition: all 0.3s;
     &.active {
       grid-template-columns: 300px auto;
-      transition: all 0.3s;
     }
 `;
 export default App;
