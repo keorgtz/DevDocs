@@ -1,12 +1,12 @@
 //#region REACT COMPONENTS & VARIABLES
 import styled from "styled-components";
 import { v } from "../styles/Variables";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 //#endregion
 //#region REACT ICONS & ASSETS
 import logo from "../assets/react.svg";
 import { AiOutlineLeft, AiFillProduct } from "react-icons/ai";
-import { BiSolidUserBadge, BiSolidReport } from "react-icons/bi";
+import { BiSolidUserBadge, BiSolidReport, BiSolidExit } from "react-icons/bi";
 import { RiHomeFill, RiSettings2Fill } from "react-icons/ri";
 import { FaUser } from "react-icons/fa";
 //#endregion
@@ -30,8 +30,8 @@ export function Sidebar({ sidebarOpen, setSidebarOpen }) {
       </div>
 
       {linksArrays.map(({icon, label, to}) => (
-        <div className="LinkContainer" key={label}>
-            <Link to={to} className="Links"> 
+        <div className="LinkContainer"  key={label}>
+            <NavLink to={to} className={({isActive}) => `Links${isActive ?` active` : `` }`}> 
               <div className="linkIcon">
                 {icon}
               </div>
@@ -40,9 +40,25 @@ export function Sidebar({ sidebarOpen, setSidebarOpen }) {
               )
 
               }
-            </Link>
+            </NavLink>
         </div>
       ))}
+      <Divider/>
+      {SecondlinksArrays.map(({icon, label, to}) => (
+        <div className="LinkContainer"  key={label}>
+            <NavLink to={to} className={({isActive}) => `Links${isActive ?` active` : `` }`}> 
+              <div className="linkIcon">
+                {icon}
+              </div>
+              {sidebarOpen && (
+                <span className="linkLabel"> {label} </span>
+              )
+
+              }
+            </NavLink>
+        </div>
+      ))}
+      <Divider/>
     </Container>
   );
 }
@@ -73,11 +89,18 @@ const linksArrays = [
     label: "Users",
     icon: <FaUser />,
     to: "/users",
-  },
+  }
+];
+const SecondlinksArrays = [
   {
     label: "Configuration",
     icon: <RiSettings2Fill />,
     to: "/configuration",
+  },
+  {
+    label: "Salir",
+    icon: <BiSolidExit />,
+    to: "/",
   }
 ];
 //#endregion
@@ -147,12 +170,29 @@ const Container = styled.div`
       align-items: center;
       text-decoration: none;
       padding: calc(${v.smSpacing}-2px) 0;
+      color: ${(props) => props.theme.text};
       .linkIcon{
         padding: ${v.smSpacing} ${v.mdSpacing};
         display: flex;
-      
+        svg{
+          font-size: 1.6rem;
+
+        }
+      }
+      &.active{
+        .linkIcon{
+          svg{
+            color: ${(props) => props.theme.bg4};
+          }
+        }
       }
     }
   }
+`;
+const Divider = styled.div`
+  height: 1px;
+  width: 100%;
+  background: ${(props) => props.theme.bg3};
+  margin-top: ${v.lgSpacing};
 `;
 //#endregion
