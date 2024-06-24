@@ -13,8 +13,13 @@ import { FaUser } from "react-icons/fa";
 
 
 export function Sidebar({ sidebarOpen, setSidebarOpen }) {
+  //Funcion para cambiar el estado del Sidebar
   const modSidebarOpen = () => {
     setSidebarOpen(!sidebarOpen);
+  };
+  //Funcion para cambiar el tema
+  const toggleTheme = () => {
+    setTheme((theme) => (theme === "light" ? "dark" : "light"));
   };
 
   return (
@@ -59,6 +64,22 @@ export function Sidebar({ sidebarOpen, setSidebarOpen }) {
         </div>
       ))}
       <Divider/>
+      <div className="themeContent">
+        {sidebarOpen && <span> Dark Mode </span>}
+        <div className="toggleContent">
+          <div className="grid theme-container">
+            <div className="content">
+              <div className="demo">
+                <label className="switch">
+                  <input type="checkbox" className="theme-switch" onClick={toggleTheme}/>
+                </label>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        
+      </div>
     </Container>
   );
 }

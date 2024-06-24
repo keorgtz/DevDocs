@@ -17,10 +17,6 @@ function App() {
   //Variable para cambiar el tema
   const themeStyle = theme === "light" ? Light : Dark;
 
-  //Funcion para cambiar el tema
-  const toggleTheme = () => {
-    setTheme((theme) => (theme === "light" ? "dark" : "light"));
-  };
   //Funcion para saber si el estado de el Sidebar esta expandido o contraido
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
