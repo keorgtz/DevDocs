@@ -18,7 +18,7 @@ function App() {
   const themeStyle = theme === "light" ? Light : Dark;
 
   //Funcion para saber si el estado de el Sidebar esta expandido o contraido
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     //Creando el componente
@@ -43,11 +43,16 @@ function App() {
 //Estilos del contenerdor para el sidebar
 const Container = styled.div`
     display: grid;
-    grid-template-columns: 90px auto;
+    grid-template-columns: 6rem auto;
     background: ${({ theme }) => theme.bgtotal};
     transition: all 0.3s;
     &.active {
-      grid-template-columns: 300px auto;
+      grid-template-columns: 18rem auto;
     }
+    color: ${({ theme }) => theme.text};
+    
 `;
+
+
+
 export default App;

@@ -2,6 +2,8 @@
 import styled from "styled-components";
 import { v } from "../styles/Variables";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { ThemeContext } from "../App"; 
 //#endregion
 //#region REACT ICONS & ASSETS
 import logo from "../assets/react.svg";
@@ -17,13 +19,16 @@ export function Sidebar({ sidebarOpen, setSidebarOpen }) {
   const modSidebarOpen = () => {
     setSidebarOpen(!sidebarOpen);
   };
+
+  const {setTheme, theme} = useContext(ThemeContext);
+
   //Funcion para cambiar el tema
   const toggleTheme = () => {
     setTheme((theme) => (theme === "light" ? "dark" : "light"));
   };
 
   return (
-    <Container isOpen={sidebarOpen}>
+    <Container isOpen={sidebarOpen} themeUse = {theme}>
       <button className="sidebarButton" onClick={modSidebarOpen}>
         <AiOutlineLeft />
       </button>
@@ -31,7 +36,7 @@ export function Sidebar({ sidebarOpen, setSidebarOpen }) {
         <div className="imgcontent">
           <img src={logo} />
         </div>
-        <h2> Aetherium </h2>
+        <h2> Aether </h2>
       </div>
 
       {linksArrays.map(({icon, label, to}) => (
@@ -65,13 +70,14 @@ export function Sidebar({ sidebarOpen, setSidebarOpen }) {
       ))}
       <Divider/>
       <div className="themeContent">
-        {sidebarOpen && <span> Dark Mode </span>}
+        {sidebarOpen && <span className="titleTheme"> Dark Mode </span>}
         <div className="toggleContent">
           <div className="grid theme-container">
             <div className="content">
               <div className="demo">
                 <label className="switch">
                   <input type="checkbox" className="theme-switch" onClick={toggleTheme}/>
+                  <span className="slider round"></span>
                 </label>
               </div>
 
@@ -129,7 +135,6 @@ const SecondlinksArrays = [
 //#region STYLED COMPONENTS
 const Container = styled.div`
   color: ${(props) => props.theme.text};
-
   background: ${(props) => props.theme.bg};
   position: sticky;
   padding-top: 25px;
@@ -180,10 +185,12 @@ const Container = styled.div`
     }
   }
   .LinkContainer{
-    margin-top: 8px 0;
+    margin-top: 0px 0px;
     padding: 0 15%;
+    margin: ${({ isOpen }) => (isOpen ? `0.5rem 0` : `0.5rem 0`)};
     :hover{
       background: ${(props) => props.theme.bg3};
+      opacity: 0.8;
     }
     .Links{
       display: flex;
@@ -210,7 +217,87 @@ const Container = styled.div`
       }
     }
   }
+  .themeContent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .titleTheme{
+      padding: 20px;
+      display: block;
+      font-weight: 700;
+      opacity: ${({isOpen}) => (isOpen ? `1` : `0`)};}
+      transition: all 0.5s;
+      white-space:nowrap;
+      overflow: hidden;
+    }
+   .toggleContent{
+    margin: ${({ isOpen }) => (isOpen ? `2.1rem 2.1rem` : `2.1rem 1.3rem`)};
+    width: 2.1rem;
+    height: 1.2rem;
+    border-radius: 0.8rem;
+    transition: all 0.5s;
+    position: relative;
+      .theme-container{
+        background-blend-mode: multiply multiply;
+        transition: 0.4s;
+        .grid{
+          display: grid;
+          justify-content: center;
+          justify-items: center;
+          height: 100vh;
+          width: 100vw;
+          font-family: "Lato", sans-serif;
+        }
+        .demo{
+          font-size: 1.9rem;
+          .switch{
+            position: relative;
+            display: inline-block;
+            width: 3.2rem;
+            height: 1.5rem;
+            .theme-switch{
+              opacity: 0;
+              width: 0;
+              height: 0;
+              &:checked +.slider:before{
+                left: 4px;
+                content: "🌑";
+                transform: translateX(16px);
+              }
+            }
+          .slider{
+              position: absolute;
+              cursor: pointer;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background-color: ${({themeUse}) => (themeUse === "light"? v.lightcheckbox : v.darkcheckbox)};
+              transition: 0.4s;
+              &::before{
+                position: absolute;
+                content: "☀️";
+                height: 0;
+                width: 0;
+                left: -10px;
+                top: 12px;
+                line-height: 0px;
+                transition: 0.4s;
+              }
+              &.round{
+                 border-radius: 1rem;
+                 &::before{
+                  border-radius: 50%;
+                 }
+              }
+            }
+          }
+        }
+      } 
+    }
+  
 `;
+
 const Divider = styled.div`
   height: 1px;
   width: 100%;
