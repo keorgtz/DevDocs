@@ -41,7 +41,7 @@ const Products = db.define('products', {
 }, {
     freezeTableName: true
 });
-
+// Relacion de Productos con usuarios segun el id del usuario
 Users.hasMany(Products);
 Products.belongsTo(Users, {foreignKey: 'userId'});
 
