@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
-import Users from "./Users.js";
+import Users from "./UserModel.js";
 
 //Funcion para Desestructurar los datos de la tabla 'users'
 const {DataTypes} = Sequelize;
