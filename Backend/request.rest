@@ -1,0 +1,37 @@
+//Create a user
+POST http://localhost:3030/users
+Content-Type: application/json
+
+{
+    "name": "Pancho",
+    "email": "pancho@gmail.com",
+    "password": "10pancho",
+    "confPassword": "10pancho",
+    "role": "user"
+}
+
+################################################
+// Get all users
+GET http://localhost:3030/users
+
+######################################
+//get Single user
+GET http://localhost:3030/users/3ec9591c-1e4e-45eb-ad0e-37dade7ebcdd
+
+######################################
+// Update a user
+PATCH http://localhost:3030/users/3ec9591c-1e4e-45eb-ad0e-37dade7ebcdd
+Content-Type: application/json
+
+{
+    "name": "juan Davis",
+    "email": "juan@gmail.com",
+    "password": "juan123",
+    "confPassword": "juan123",
+    "role": "user"
+}
+
+######################################
+// Delete a user
+DELETE http://localhost:3030/users/3ec9591c-1e4e-45eb-ad0e-37dade7ebcdd
+
