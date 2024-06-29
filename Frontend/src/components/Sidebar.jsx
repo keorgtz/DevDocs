@@ -137,7 +137,7 @@ const Container = styled.div`
   color: ${(props) => props.theme.text};
   background: ${(props) => props.theme.bg};
   position: sticky;
-  padding-top: 25px;
+  padding-top: 1.5rem;
   transition: all 0.5s;
   .sidebarButton {
     position: absolute;
@@ -177,7 +177,7 @@ const Container = styled.div`
       }
       cursor: pointer;
       transition: all 0.5s;
-      transform: ${({ isOpen }) => (isOpen ? `scale(0.8)` : `scale(1.5)`)};
+      transform: ${({ isOpen }) => (isOpen ? `scale(0.8)` : `scale(1.4)`)};
     }
     h2 {
       display: ${({ isOpen }) => (isOpen ? `block` : `none`)};
@@ -186,25 +186,27 @@ const Container = styled.div`
   }
   .LinkContainer{
     margin-top: 0px 0px;
-    padding: 0 15%;
-    margin: ${({ isOpen }) => (isOpen ? `0.5rem 0` : `0.5rem 0`)};
+    padding: 1% 22%;
+    margin: ${({ isOpen }) => (isOpen ? `0.5rem 0` : `0.5rem 0.4rem`)};
+    
     :hover{
       background: ${(props) => props.theme.bg3};
-      opacity: 0.8;
+      border-radius: 1rem;
+      transition: all 0.5s;
     }
     .Links{
       display: flex;
       align-items: center;
       text-decoration: none;
-      padding: calc(${v.mdSpacing}-2px) 0;
+      padding: calc(${v.mdSpacing} -2px) 0;
       color: ${(props) => props.theme.text};
+      transform: ${({ isOpen }) => (isOpen ? `scale(1.1)` : `scale(1.3)`)};
+      
       .linkIcon{
-        padding: ${v.mdSpacing} ${v.mdSpacing};
+        padding: ${v.smSpacing} ${v.smSpacing};
         display: flex;
         svg{
-          font-size: 1.6rem;
-          transform: ${({ isOpen }) => (isOpen ? `` : `scale(1.3)`)};
-          transition: all 0.4s;
+          font-size: 1.5rem;
         }
         
       }
@@ -212,17 +214,19 @@ const Container = styled.div`
         .linkIcon{
           svg{
             color: ${(props) => props.theme.bg4};
+            
           }
         }
       }
     }
+    
   }
   .themeContent{
     display: flex;
     justify-content: space-between;
     align-items: center;
     .titleTheme{
-      padding: 20px;
+      padding: 1.3rem;
       display: block;
       font-weight: 700;
       opacity: ${({isOpen}) => (isOpen ? `1` : `0`)};}
@@ -249,7 +253,7 @@ const Container = styled.div`
           font-family: "Lato", sans-serif;
         }
         .demo{
-          font-size: 1.9rem;
+          font-size: 2rem;
           .switch{
             position: relative;
             display: inline-block;
@@ -260,7 +264,7 @@ const Container = styled.div`
               width: 0;
               height: 0;
               &:checked +.slider:before{
-                left: 4px;
+                left: 0.3rem;
                 content: "🌑";
                 transform: translateX(16px);
               }
@@ -279,9 +283,9 @@ const Container = styled.div`
                 content: "☀️";
                 height: 0;
                 width: 0;
-                left: -10px;
-                top: 12px;
-                line-height: 0px;
+                left: -0.5rem;
+                top: 0.8rem;
+                line-height: 0rem;
                 transition: 0.4s;
               }
               &.round{
