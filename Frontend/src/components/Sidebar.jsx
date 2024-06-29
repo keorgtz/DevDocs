@@ -206,7 +206,7 @@ const Container = styled.div`
         padding: ${v.smSpacing} ${v.smSpacing};
         display: flex;
         svg{
-          font-size: 1.5rem;
+          font-size: 1.4rem;
         }
         
       }
@@ -227,6 +227,7 @@ const Container = styled.div`
     align-items: center;
     .titleTheme{
       padding: 1.3rem;
+      padding-top: 1.5rem;
       display: block;
       font-weight: 700;
       opacity: ${({isOpen}) => (isOpen ? `1` : `0`)};}
