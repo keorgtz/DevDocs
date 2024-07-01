@@ -26,11 +26,11 @@ const app = express();
 //#region CREATE TABLES FUNCTION
 //Esta Funcion es una funcion autoejecutable que crear las tablas automaticamente sincronizando la base de datos
 //una vez terminado de crear y sincronizar la base de datos, por medio de una promesa, la funcion para automaticamente
-//
+
 // (async() => {
 //     await db.sync();
 // })();
-//
+
 //#endregion
 
 //#region SESSION Y AUTENTIFICACION DE TOKENS
