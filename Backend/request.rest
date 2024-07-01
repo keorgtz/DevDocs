@@ -20,18 +20,35 @@ GET http://localhost:3030/users/3ec9591c-1e4e-45eb-ad0e-37dade7ebcdd
 
 ######################################
 // Update a user
-PATCH http://localhost:3030/users/3ec9591c-1e4e-45eb-ad0e-37dade7ebcdd
+PATCH http://localhost:3030/users/0ea76051-cd9c-4bf0-8447-fad761ffbf85
 Content-Type: application/json
 
 {
-    "name": "juan Davis",
-    "email": "juan@gmail.com",
-    "password": "juan123",
-    "confPassword": "juan123",
+    "name": "Pancho",
+    "email": "pancho@gmail.com",
+    "password": "10pancho",
+    "confPassword": "10pancho",
     "role": "user"
 }
 
 ######################################
 // Delete a user
 DELETE http://localhost:3030/users/3ec9591c-1e4e-45eb-ad0e-37dade7ebcdd
+#################################################
+//Login user
+POST http://localhost:3030/login
+Content-Type: application/json
 
+{
+    "email": "pancho@gmail.com",
+    "password": "10pancho"
+    
+}
+
+######################################
+// Logout user
+DELETE http://localhost:3030/logout
+
+######################################
+// My user
+GET http://localhost:3030/me
