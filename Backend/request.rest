@@ -20,14 +20,14 @@ GET http://localhost:3030/users/0ea76051-cd9c-4bf0-8447-fad761ffbf85
 
 ######################################
 // Update a user
-PATCH http://localhost:3030/users/0ea76051-cd9c-4bf0-8447-fad761ffbf85
+PATCH http://localhost:3030/users/b403aedd-73ce-4861-9967-558dee3bd142
 Content-Type: application/json
 
 {
-    "name": "Pancho 12",
-    "email": "panch12@gmail.com",
-    "password": "12pancho",
-    "confPassword": "12pancho",
+    "name": "juano",
+    "email": "juano@gmail.com",
+    "password": "juano",
+    "confPassword": "juano",
     "role": "user"
 }
 
@@ -36,6 +36,15 @@ Content-Type: application/json
 DELETE http://localhost:3030/users/3ec9591c-1e4e-45eb-ad0e-37dade7ebcdd
 #################################################
 //Login user
+POST http://localhost:3030/login
+Content-Type: application/json
+
+{
+    "email": "juano@gmail.com",
+    "password": "juano"
+    
+}
+###
 POST http://localhost:3030/login
 Content-Type: application/json
 
@@ -52,3 +61,50 @@ DELETE http://localhost:3030/logout
 ######################################
 // My user
 GET http://localhost:3030/me
+
+
+##################################################################################################################################
+
+//Create a products
+POST http://localhost:3030/products
+Content-Type: application/json
+
+{
+    "name": "Prodcut5",
+    "price": 100
+    
+}
+
+################################################
+// Get all products
+GET http://localhost:3030/products
+
+######################################
+//get Single product
+GET http://localhost:3030/products/6ba773ea-667f-411f-bb60-2beaac67b7f2
+
+######################################
+// Update a product
+PATCH http://localhost:3030/products/6ba773ea-667f-411f-bb60-2beaac67b7f2
+Content-Type: application/json
+
+{
+    "name": "Prodcut1.1",
+    "price": 120
+    
+}
+
+######################################
+// Delete a product
+DELETE http://localhost:3030/products/6ba773ea-667f-411f-bb60-2beaac67b7f2
+#################################################
+//Login user
+POST http://localhost:3030/login
+Content-Type: application/json
+
+{
+    "email": "socialsenit@gmail.com",
+    "password": "toor"
+    
+}
+
