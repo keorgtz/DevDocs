@@ -24,7 +24,7 @@ export const Login = async(req, res) => {
 //Funcion para Obtener el inicio de sesion del usuario
 export const Me = async(req, res) => {
     if(!req.session.userId){
-        return res.status(401).json({msg: "Usuario Desconectado, Debe iniciar sesion con su Cuenta"});
+        return res.status(401).json({msg: "Sesion Finalizada, Debe Acceder nuevamente"});
     }
     const user = await Users.findOne({
         attributes: ['uuid', 'name', 'email', 'role'],

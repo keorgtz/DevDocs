@@ -3,10 +3,10 @@ POST http://localhost:3030/users
 Content-Type: application/json
 
 {
-    "name": "Pancho",
-    "email": "pancho@gmail.com",
-    "password": "10pancho",
-    "confPassword": "10pancho",
+    "name": "Pancho1",
+    "email": "pancho1@gmail.com",
+    "password": "110pancho",
+    "confPassword": "110pancho",
     "role": "user"
 }
 
@@ -16,7 +16,7 @@ GET http://localhost:3030/users
 
 ######################################
 //get Single user
-GET http://localhost:3030/users/3ec9591c-1e4e-45eb-ad0e-37dade7ebcdd
+GET http://localhost:3030/users/0ea76051-cd9c-4bf0-8447-fad761ffbf85
 
 ######################################
 // Update a user
@@ -24,10 +24,10 @@ PATCH http://localhost:3030/users/0ea76051-cd9c-4bf0-8447-fad761ffbf85
 Content-Type: application/json
 
 {
-    "name": "Pancho",
-    "email": "pancho@gmail.com",
-    "password": "10pancho",
-    "confPassword": "10pancho",
+    "name": "Pancho 12",
+    "email": "panch12@gmail.com",
+    "password": "12pancho",
+    "confPassword": "12pancho",
     "role": "user"
 }
 
@@ -40,8 +40,8 @@ POST http://localhost:3030/login
 Content-Type: application/json
 
 {
-    "email": "pancho@gmail.com",
-    "password": "10pancho"
+    "email": "socialsenit@gmail.com",
+    "password": "toor"
     
 }
 

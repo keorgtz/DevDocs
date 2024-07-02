@@ -7,15 +7,19 @@ import {
     updateProduct,
     deleteProduct
 } from "../controllers/Products.js";
+import { verifyUser } from "../middleware/AuthUser.js";
 
 const router = express.Router();
 
 //Almacenamos los metodos http en nuestros metodos propios de nuestros controladores para usarlos dentro de la aplicación
-router.get('/products', getProducts);
-router.get('/products/:id', getProductById);
-router.post('/products', createProduct);
-router.patch('/products/:id', updateProduct);
-router.delete('/products/:id', deleteProduct);
+router.get('/products', verifyUser, getProducts);
+router.get('/products/:id', verifyUser, getProductById);
+router.post('/products', verifyUser, createProduct);
+router.patch('/products/:id', verifyUser, updateProduct);
+router.delete('/products/:id', verifyUser, deleteProduct);
 
 
 export default router;
+
+//verifyUser hace que solo los usuarios con sesion iniciada puedan acceder al CRUD si no no podran ver nada ni modificar nada
+//
