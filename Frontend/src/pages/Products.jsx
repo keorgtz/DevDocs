@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import Productlist from "../components/listing/Productlist";
+
 export function Products(){
     return(
         <Container>
-            <Productlist/>  
+            
         </Container>
     );
 }

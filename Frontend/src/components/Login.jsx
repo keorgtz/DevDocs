@@ -1,20 +1,25 @@
-// src/components/Login.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import '../styles/Login.css'; // Importando el archivo CSS
 
 export function Login({ onLogin }) {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí deberías verificar las credenciales del usuario
-    if (username === "root" && password === "toor") {
-      onLogin();
+    try {
+      const response = await axios.post('http://localhost:3030/login', {
+        email: email,
+        password: password
+      });
+      // Aquí deberías guardar el token de sesión o cualquier otra información relevante
+      onLogin(response.data); // Puedes pasar la información del usuario al estado superior
       navigate("/home");
-    } else {
+    } catch (error) {
+      console.error("Error logging in:", error);
       alert("Credenciales incorrectas");
     }
   };
@@ -23,10 +28,10 @@ export function Login({ onLogin }) {
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
         <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="Usuario"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
         />
         <input
           type="password"

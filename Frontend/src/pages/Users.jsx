@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import  Userlisting  from "../components/listing/Userlist";
+    
 export function Users(){
     return(
         <Container>
-            <Userlisting/>
+            
         </Container>
     );
 }

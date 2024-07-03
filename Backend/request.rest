@@ -3,11 +3,11 @@ POST http://localhost:3030/users
 Content-Type: application/json
 
 {
-    "name": "Pancho1",
-    "email": "pancho1@gmail.com",
-    "password": "110pancho",
-    "confPassword": "110pancho",
-    "role": "user"
+    "name": "admin",
+    "email": "admin@gmail.com",
+    "password": "admin",
+    "confPassword": "admin",
+    "role": "admin"
 }
 
 ################################################
