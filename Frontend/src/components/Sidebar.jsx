@@ -95,7 +95,7 @@ const linksArrays = [
   {
     label: "Home",
     icon: <RiHomeFill />,
-    to: "/",
+    to: "/home",
   },
   {
     label: "Clients",

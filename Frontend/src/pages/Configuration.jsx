@@ -9,4 +9,5 @@ export function Configuration(){
 
 const Container = styled.div`
 height: 100vh;
+padding: 1.3rem;
 `;
