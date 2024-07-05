@@ -7,6 +7,7 @@ import UserRoute from "./routes/UserRoute.js";
 import ProductRoute from "./routes/ProductRoute.js";
 import AuthRoute from "./routes/AuthRoute.js";
 
+
 //#region Importacion de base de datos
 import db from "./config/Database.js";
 //#endregion
@@ -14,6 +15,8 @@ import db from "./config/Database.js";
 dotenv.config();
 
 const app = express();
+
+
 
 //#region REGION_NAME
     const sessionStore = SequelizeStore(session.Store);
@@ -40,7 +43,7 @@ app.use(session({
     saveUninitialized: true,
     store: store,
     cookie: {
-       secure: 'auto'
+       secure: 'true'
     }
 }));
 

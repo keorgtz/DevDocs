@@ -15,7 +15,9 @@ export function Login({ onLogin }) {
         email: email,
         password: password
       });
-      // Aquí deberías guardar el token de sesión o cualquier otra información relevante
+
+      // Guardar token de sesión o cualquier información relevante en el localStorage
+      localStorage.setItem('token', response.data.token); // Guardar el token en localStorage
       onLogin(response.data); // Puedes pasar la información del usuario al estado superior
       navigate("/home");
     } catch (error) {

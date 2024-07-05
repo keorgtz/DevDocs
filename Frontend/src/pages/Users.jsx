@@ -1,9 +1,11 @@
 import styled from "styled-components";
-    
+import UserCRUD from "../components/UserCRUD";
+
+
 export function Users(){
     return(
         <Container>
-            
+            <UserCRUD />
         </Container>
     );
 }
