@@ -3,11 +3,19 @@ POST http://localhost:3030/users
 Content-Type: application/json
 
 {
+<<<<<<< Updated upstream
     "name": "admin",
     "email": "admin@gmail.com",
     "password": "admin",
     "confPassword": "admin",
     "role": "admin"
+=======
+    "name": "pepe",
+    "email": "pepe@gmail.com",
+    "password": "pepe",
+    "confPassword": "pepe",
+    "role": "user"
+>>>>>>> Stashed changes
 }
 
 ################################################
@@ -49,7 +57,7 @@ POST http://localhost:3030/login
 Content-Type: application/json
 
 {
-    "email": "socialsenit@gmail.com",
+    "email": "admin@gmail.com",
     "password": "toor"
     
 }

@@ -59,7 +59,7 @@ app.use(AuthRoute);
 //#endregion
 
 //#region CREATE SESSION TABLE FUNTION
-// store.sync();
+//  store.sync();
 //#endregion
 
 app.listen(process.env.APP_PORT, () => {
